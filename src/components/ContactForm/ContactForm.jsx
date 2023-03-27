@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import shortid from 'shortid';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  postContacts,
-  selectContactList,
-} from 'redux/features/contactListSlice';
+import { postContacts } from 'redux/contactListSlice';
+import { selectContactList } from 'redux/store';
+import { UserAddOutlined } from '@ant-design/icons';
+
 import {
   FormStyled,
   ButtonStyled,
   InputStyled,
   LabelStyled,
-  Headers,
 } from './ContactForm.Styled';
 
 const ContactForm = () => {
@@ -36,11 +34,11 @@ const ContactForm = () => {
     ) {
       alert(`name: ${name}, is already in contacts`);
       return;
-    } else if (contactList.some(contact => contact.phone === number)) {
+    } else if (contactList.some(contact => contact.number === number)) {
       alert(`number: ${number}, is already in contacts`);
       return;
     } else {
-      dispatch(postContacts({ id: shortid.generate(), name, phone: number }));
+      dispatch(postContacts({ name, number }));
     }
 
     setName('');
@@ -48,37 +46,37 @@ const ContactForm = () => {
   };
 
   return (
-    <>
-      <Headers>Phonebook</Headers>
-      <FormStyled onSubmit={onSubmitHendler}>
-        <LabelStyled htmlFor="name">
-          <span>Name:</span>
-          <InputStyled
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={name}
-            onChange={onNameChange}
-          />
-        </LabelStyled>
-        <LabelStyled htmlFor="number">
-          <span>Number:</span>
-          <InputStyled
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            value={number}
-            onChange={onNumberChange}
-          ></InputStyled>
-        </LabelStyled>
+    <FormStyled onSubmit={onSubmitHendler}>
+      <LabelStyled htmlFor="name">
+        <span>Name:</span>
+        <InputStyled
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          value={name}
+          onChange={onNameChange}
+        />
+      </LabelStyled>
+      <LabelStyled htmlFor="number">
+        <span>Number:</span>
+        <InputStyled
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          value={number}
+          onChange={onNumberChange}
+        ></InputStyled>
+      </LabelStyled>
 
-        <ButtonStyled type="submit">Add contact</ButtonStyled>
-      </FormStyled>
-    </>
+      <ButtonStyled type="submit">
+        <UserAddOutlined />
+        Add contact
+      </ButtonStyled>
+    </FormStyled>
   );
 };
 

@@ -3,19 +3,17 @@ import {
   ListStyled,
   ListItemStyled,
   ContactTextStyled,
-  ContactListHeader,
   ContactListBtn,
 } from './ContactList.Styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteContact,
   fetchContactList,
-  selectContactList,
-  selectError,
-  selectIsLoading,
-} from '../../redux/features/contactListSlice';
-import { selectFilter } from '../../redux/features/filterSlice';
+} from '../../redux/contactListSlice';
+import { selectFilter } from '../../redux/filterSlice';
 import Loader from 'components/Loader/Loader';
+import { selectContactList, selectError, selectIsLoading } from 'redux/store';
+import { DeleteOutlined } from '@ant-design/icons/lib/icons';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -36,19 +34,24 @@ const ContactList = () => {
       {isLoading && <Loader />}
       {error && 'Sorry, something wrong, please try to reload page.'}
       {contactList.length > 0 && !isLoading && !error && (
-        <>
-          <ContactListHeader>Contacts:</ContactListHeader>
-          <ListStyled>
+        <div style={{ flexDirection: 'column', alignItems: 'center' }}>
+          <ListStyled
+            style={{
+              height: '75vh',
+              overflow: 'auto',
+            }}
+          >
             {filteredContacts.map(contact => {
               return (
                 <ListItemStyled key={contact.id}>
                   <ContactTextStyled>
-                    {contact.name}: {contact.phone}
+                    {contact.name}: {contact.number}
                   </ContactTextStyled>
                   <ContactListBtn
                     type="button"
                     onClick={() => dispatch(deleteContact(contact.id))}
                   >
+                    <DeleteOutlined />
                     Delete
                   </ContactListBtn>
                 </ListItemStyled>
@@ -57,7 +60,7 @@ const ContactList = () => {
             {filteredContacts.length === 0 &&
               'Sorry, there is no such contact...'}
           </ListStyled>
-        </>
+        </div>
       )}
     </>
   );

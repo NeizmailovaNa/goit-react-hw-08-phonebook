@@ -1,6 +1,7 @@
 import Filter from './Filter/Filter';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
+import { AppBar } from './AppBar/AppBar';
 
 const App = () => {
   return (
@@ -15,8 +16,9 @@ const App = () => {
         color: '#010101',
       }}
     >
+      <AppBar></AppBar>
       <ContactForm />
-      <Filter />
+        <Filter />
       <ContactList />
     </div>
   );
