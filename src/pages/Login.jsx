@@ -7,7 +7,7 @@ import {
 } from 'components/ContactForm/ContactForm.Styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/authSlice';
+import { logIn } from 'redux/authSlice';
 const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');

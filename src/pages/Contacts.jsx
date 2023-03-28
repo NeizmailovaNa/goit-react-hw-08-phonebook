@@ -4,7 +4,7 @@ import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContactList } from 'redux/contacts/contactListSlice';
+import { fetchContactList } from 'redux/contactListSlice';
 import { selectIsLoading } from 'redux/store';
 import { ContactsWrap } from './Pages.Styled';
 

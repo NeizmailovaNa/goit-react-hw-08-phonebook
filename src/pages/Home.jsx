@@ -15,9 +15,7 @@ const Home = () => {
     >
       <PhoneOutlined />
       <div>
-        There is a phone book in which you can store an unlimited number of
-        contacts. To do this, you need to register, and then you can start
-        adding your contacts.
+      If you want to use the phone book, you need to register or log in
       </div>
     </div>
   );

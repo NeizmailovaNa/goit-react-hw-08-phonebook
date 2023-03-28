@@ -7,7 +7,7 @@ import {
 } from 'components/ContactForm/ContactForm.Styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/authSlice';
+import { register } from 'redux/authSlice';
 
 const Register = () => {
   const [name, setName] = useState('');

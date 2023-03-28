@@ -1,15 +1,13 @@
-import { NavLink } from '../AuthNav/AuthNav.Styled.jsx';
+import { NavLinkStyled } from 'components/AppBar/AppBar.Styled';
 
 
 export const AuthNav = () => {
   return (
     <div>
-      <NavLink  to="/register">
+      <NavLinkStyled to="/register" style={{ marginRight: '50px' }}>
         Register
-      </NavLink>
-      <NavLink to="/login">
-        Log In
-      </NavLink>
+      </NavLinkStyled>
+      <NavLinkStyled to="/login">Log In</NavLinkStyled>
     </div>
   );
 };

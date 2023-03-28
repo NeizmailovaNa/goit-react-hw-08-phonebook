@@ -5,6 +5,10 @@ export const FormStyled = styled.form`
     padding: 20px;
     border: 1px solid black;
     border-radius: 5px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
   }
 `;
 export const ButtonStyled = styled.button`
