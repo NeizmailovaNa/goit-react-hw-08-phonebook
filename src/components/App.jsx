@@ -8,6 +8,7 @@ import Loader from 'components/Loader/Loader';
 import { PublicRoute } from 'components/PublicRoute';
 import { Layout } from 'components/Layout';
 
+
 const HomePage = lazy(() => import('../pages/Home'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -17,11 +18,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const isfetchCurrentUser = useSelector(getIsfetchCurrentUser);
 
-  module.exports = {
-    kit: {
-      floc: true
-    }
-  };
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
