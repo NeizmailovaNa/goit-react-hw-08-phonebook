@@ -9,6 +9,7 @@ import { PublicRoute } from 'components/PublicRoute';
 import { Layout } from 'components/Layout';
 
 
+
 const HomePage = lazy(() => import('../pages/Home'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -17,11 +18,12 @@ const LoginPage = lazy(() => import('../pages/Login'));
 export const App = () => {
   const dispatch = useDispatch();
   const isfetchCurrentUser = useSelector(getIsfetchCurrentUser);
-
+  
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
+  
 
   return isfetchCurrentUser ? (
     <Loader />
