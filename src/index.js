@@ -6,6 +6,14 @@ import {App} from './components/App';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  base: "/tweak/",
+ //...whatever you had here remains the same
+});
 
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()"></meta>
 
