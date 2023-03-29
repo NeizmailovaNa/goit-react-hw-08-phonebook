@@ -19,8 +19,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 );
 
-module.exports = {
-  kit: {
-    floc: true
-  }
-};

@@ -17,6 +17,12 @@ export const App = () => {
   const dispatch = useDispatch();
   const isfetchCurrentUser = useSelector(getIsfetchCurrentUser);
 
+  module.exports = {
+    kit: {
+      floc: true
+    }
+  };
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
