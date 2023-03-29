@@ -18,3 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 );
+
+module.exports = {
+  kit: {
+    floc: true
+  }
+};
